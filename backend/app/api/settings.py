@@ -37,10 +37,10 @@ class SettingsUpdateRequest(BaseModel):
 @router.get("")
 def get_settings(current_user: User = Depends(get_current_user), db: Session = Depends(get_db)):
     data = export_settings(db)
-    data["cloud_llm"] = {
-        "base_url": env_settings.OPENAI_COMPATIBLE_BASE_URL,
-        "configured": bool(env_settings.OPENAI_COMPATIBLE_BASE_URL and env_settings.OPENAI_COMPATIBLE_API_KEY),
-        "model": env_settings.OPENAI_COMPATIBLE_LLM_MODEL,
+    data["deepseek"] = {
+        "base_url": env_settings.DEEPSEEK_BASE_URL,
+        "configured": bool(env_settings.DEEPSEEK_BASE_URL and env_settings.DEEPSEEK_API_KEY),
+        "model": env_settings.DEEPSEEK_LLM_MODEL,
     }
     data["ollama"] = {
         "base_url": env_settings.OLLAMA_BASE_URL,

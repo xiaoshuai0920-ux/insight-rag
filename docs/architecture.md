@@ -4,7 +4,7 @@
 
 ## 总体架构
 
-InsightRAG 采用**模块化单体**架构，前端 Vue 3 SPA + 后端 FastAPI + PostgreSQL(pgvector) 数据层，LLM/Embedding/Reranker 通过统一 Provider 接口接入（本地 Ollama 或 OpenAI Compatible 云端）。
+InsightRAG 采用**模块化单体**架构，前端 Vue 3 SPA + 后端 FastAPI + PostgreSQL(pgvector) 数据层，LLM/Embedding/Reranker 通过统一 Provider 接口接入（本地 Ollama 或 DeepSeek 云端）。
 
 ```mermaid
 flowchart TB
@@ -29,7 +29,7 @@ flowchart TB
 
     subgraph Providers["模型 Provider"]
         Ollama["Ollama<br/>qwen2.5:7b / nomic-embed-text"]
-        Cloud["OpenAI Compatible<br/>（可选，未配置则降级）"]
+        Cloud["DeepSeek<br/>（可选，未配置则降级）"]
         Rerank["本地 Reranker<br/>bge-reranker-base"]
     end
 

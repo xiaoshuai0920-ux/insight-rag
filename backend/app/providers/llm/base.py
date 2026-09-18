@@ -42,6 +42,10 @@ def get_llm_provider(provider_name: str | None = None) -> LLMProvider:
         from app.providers.llm.ollama_provider import OllamaProvider
 
         return OllamaProvider()
+    if name == "deepseek":
+        from app.providers.llm.deepseek_provider import DeepSeekProvider
+
+        return DeepSeekProvider()
     if name == "openai_compatible":
         from app.providers.llm.openai_compatible_provider import OpenAICompatibleProvider
 

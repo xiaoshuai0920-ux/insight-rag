@@ -33,10 +33,15 @@ class Settings(BaseSettings):
     OLLAMA_BASE_URL: str = "http://localhost:11434"
     OLLAMA_LLM_MODEL: str = "qwen2.5:7b"
 
-    # OpenAI Compatible provider
+    # OpenAI Compatible provider (generic fallback)
     OPENAI_COMPATIBLE_BASE_URL: str = ""
     OPENAI_COMPATIBLE_API_KEY: str = ""
     OPENAI_COMPATIBLE_LLM_MODEL: str = ""
+
+    # DeepSeek provider (OpenAI-compatible API)
+    DEEPSEEK_BASE_URL: str = "https://api.deepseek.com"
+    DEEPSEEK_API_KEY: str = ""
+    DEEPSEEK_LLM_MODEL: str = "deepseek-v4-pro"
 
     # Embedding
     EMBEDDING_PROVIDER: str = "ollama"

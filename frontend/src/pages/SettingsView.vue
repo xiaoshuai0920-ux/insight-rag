@@ -29,16 +29,16 @@
           <div class="provider-cards">
             <button
               class="provider-card"
-              :class="{ active: form.llm_provider === 'openai_compatible' }"
+              :class="{ active: form.llm_provider === 'deepseek' }"
               role="radio"
-              :aria-checked="form.llm_provider === 'openai_compatible'"
-              @click="form.llm_provider = 'openai_compatible'"
+              :aria-checked="form.llm_provider === 'deepseek'"
+              @click="form.llm_provider = 'deepseek'"
             >
               <span class="provider-radio" aria-hidden="true"></span>
-              <span class="provider-name">OpenAI Compatible</span>
-              <span class="provider-desc">兼容 OpenAI API 的模型</span>
-              <span class="provider-status" :class="settings.cloud_llm?.configured ? 'ok' : 'bad'">
-                {{ settings.cloud_llm?.configured ? 'API Key 已配置' : '未配置 API Key' }}
+              <span class="provider-name">🐋 DeepSeek</span>
+              <span class="provider-desc">云端大模型（deepseek-chat）</span>
+              <span class="provider-status" :class="settings.deepseek?.configured ? 'ok' : 'bad'">
+                {{ settings.deepseek?.configured ? 'API Key 已配置' : '未配置 API Key' }}
               </span>
             </button>
             <button
@@ -64,7 +64,7 @@
               <label class="cfg-label">部署方式</label>
               <el-select v-model="form.llm_provider" style="width: 100%">
                 <el-option label="本地模型 (Ollama)" value="ollama" />
-                <el-option label="OpenAI Compatible" value="openai_compatible" />
+                <el-option label="DeepSeek" value="deepseek" />
               </el-select>
             </div>
             <div class="llm-field">

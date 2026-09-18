@@ -94,6 +94,9 @@ def export_settings(db: Session) -> dict[str, Any]:
     out["openai_compatible_configured"] = bool(
         settings.OPENAI_COMPATIBLE_BASE_URL and settings.OPENAI_COMPATIBLE_API_KEY
     )
+    out["deepseek_configured"] = bool(
+        settings.DEEPSEEK_BASE_URL and settings.DEEPSEEK_API_KEY
+    )
     out["ollama_base_url"] = settings.OLLAMA_BASE_URL
     return out
 

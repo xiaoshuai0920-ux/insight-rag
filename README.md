@@ -26,7 +26,7 @@ flowchart LR
     FE["Vue 3 + Element Plus"] -->|HTTP/SSE| BE["FastAPI"]
     BE --> RAG["RAG 管线<br/>parse→chunk→embed→retrieve→rerank→generate"]
     BE --> PG[("PostgreSQL<br/>+ pgvector")]
-    RAG --> LLM["Ollama / OpenAI Compatible"]
+    RAG --> LLM["Ollama / DeepSeek"]
     RAG --> EMB["nomic-embed-text"]
     RAG --> RER["bge-reranker-base"]
 ```
@@ -63,7 +63,7 @@ Question → KB 范围校验 → CURRENT+READY 过滤 → Dense Top10 + BM25 Top
 | Backend | Python 3.12+, FastAPI, Pydantic v2, SQLAlchemy 2.x, JWT, Passlib, Pytest |
 | Data | PostgreSQL 16+, pgvector |
 | RAG | rank_bm25, jieba, sentence-transformers (CrossEncoder), PyMuPDF, python-docx |
-| LLM | Ollama（本地）/ OpenAI Compatible（云端，可选） |
+| LLM | Ollama（本地）/ DeepSeek（云端，可选） |
 
 ## 项目目录
 
@@ -144,7 +144,10 @@ python scripts/seed_demo_data.py                    # 6 个知识库 + 24 份文
 | `OLLAMA_BASE_URL` | Ollama 地址，默认 `http://localhost:11434` |
 | `OLLAMA_LLM_MODEL` | LLM 模型，默认 `qwen2.5:7b` |
 | `OLLAMA_EMBEDDING_MODEL` | Embedding 模型，默认 `nomic-embed-text` |
-| `OPENAI_COMPATIBLE_*` | 云端模型（可选，留空则未配置） |
+| `DEEPSEEK_BASE_URL` | DeepSeek API 地址，默认 `https://api.deepseek.com` |
+| `DEEPSEEK_API_KEY` | DeepSeek API Key（留空则未配置） |
+| `DEEPSEEK_LLM_MODEL` | DeepSeek 模型，默认 `deepseek-chat` |
+| `OPENAI_COMPATIBLE_*` | 通用 OpenAI 兼容接口（可选，留空则未配置） |
 | `RERANKER_MODEL` | Reranker 模型，默认 `BAAI/bge-reranker-base` |
 
 ## Ollama 配置
@@ -156,9 +159,9 @@ ollama pull nomic-embed-text
 
 后端启动时自动检测 `/api/tags` 并优先使用 `qwen2.5:7b`。若 `nomic-embed-text` 未安装，会尝试自动拉取；网络失败时设置页显示"Embedding 模型未就绪"，不影响其它功能。
 
-## Cloud Provider 配置
+## DeepSeek 配置
 
-在 `.env` 填写 `OPENAI_COMPATIBLE_BASE_URL` / `OPENAI_COMPATIBLE_API_KEY` / `OPENAI_COMPATIBLE_LLM_MODEL` 即可启用云端模型。Key 为空时 UI 显示"未配置"，应用不崩溃。
+在 `.env` 填写 `DEEPSEEK_API_KEY`（前往 [platform.deepseek.com](https://platform.deepseek.com) 获取）即可启用 DeepSeek 云端模型，默认模型为 `deepseek-chat`（可切换 `deepseek-reasoner`）。Key 为空时 UI 显示"未配置"，应用不崩溃，仍可用本地 Ollama。
 
 ## Demo Data
 
