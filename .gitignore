@@ -1,0 +1,51 @@
+# ---- Secrets & env ----
+.env
+.env.local
+*.pem
+*.key
+
+# ---- Data ----
+data/
+!data/.gitkeep
+backend/data/
+*.sqlite3
+*.db
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+
+# ---- Node ----
+node_modules/
+dist/
+.vite/
+*.local
+
+# ---- Model caches ----
+.cache/
+models/
+*.safetensors
+*.gguf
+
+# ---- IDE / OS ----
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# ---- Logs ----
+*.log
+logs/
+
+# ---- Temp / smoke test artifacts ----
+tmp-smoke/
+*.tmp
+nohup.out

@@ -1,0 +1,21 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: insightrag-db
+    environment:
+      POSTGRES_USER: insightrag
+      POSTGRES_PASSWORD: insightrag
+      POSTGRES_DB: insightrag
+    ports:
+      # Host port 5433 to avoid conflicts with an existing local PostgreSQL on 5432
+      - "5433:5432"
+    volumes:
+      - insightrag_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U insightrag -d insightrag"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  insightrag_pgdata:

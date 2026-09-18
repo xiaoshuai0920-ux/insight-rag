@@ -1,0 +1,72 @@
+{
+  "company": "NexaTech",
+  "note": "虚构演示数据清单。Seed 时按 manifest 建立知识库 + 逻辑文档 + 版本。差旅管理制度包含 V2.0(HISTORICAL) 与 V3.0(CURRENT) 两个版本，用于演示版本历史。",
+  "knowledge_bases": [
+    {
+      "name": "人事制度库",
+      "description": "员工手册、请假、年假、入离职等人事相关制度",
+      "category": "hr",
+      "documents": [
+        {"file": "hr_员工手册.md"},
+        {"file": "hr_请假管理制度.md"},
+        {"file": "hr_年假管理制度.md"},
+        {"file": "hr_入离职流程.md"}
+      ]
+    },
+    {
+      "name": "财务制度库",
+      "description": "差旅、报销、发票、预算等财务相关制度",
+      "category": "finance",
+      "documents": [
+        {"file": "fin_差旅管理制度_v2.md"},
+        {"file": "fin_差旅管理制度_v3.md"},
+        {"file": "fin_报销管理规范.md"},
+        {"file": "fin_发票开具说明.md"},
+        {"file": "fin_费用预算管理办法.md"}
+      ]
+    },
+    {
+      "name": "产品知识库",
+      "description": "产品功能、用户手册、售后与版本更新说明",
+      "category": "product",
+      "documents": [
+        {"file": "prod_产品用户手册.md"},
+        {"file": "prod_产品售后规则.md"},
+        {"file": "prod_产品功能说明.md"},
+        {"file": "prod_产品版本更新说明.md"}
+      ]
+    },
+    {
+      "name": "客服知识库",
+      "description": "客户投诉、退款、服务规范等客服制度",
+      "category": "support",
+      "documents": [
+        {"file": "cs_客户投诉处理.md"},
+        {"file": "cs_退款流程.md"},
+        {"file": "cs_客服服务规范.md"}
+      ]
+    },
+    {
+      "name": "采购管理库",
+      "description": "采购审批、供应商、合同、验收等采购制度",
+      "category": "procurement",
+      "documents": [
+        {"file": "pur_采购审批流程.md"},
+        {"file": "pur_供应商准入规范.md"},
+        {"file": "pur_合同审批流程.md"},
+        {"file": "pur_采购物资验收标准.md"}
+      ]
+    },
+    {
+      "name": "信息安全库",
+      "description": "信息安全、数据访问、应急响应、备份恢复等制度",
+      "category": "security",
+      "documents": [
+        {"file": "sec_信息安全管理制度.md"},
+        {"file": "sec_数据访问规范.md"},
+        {"file": "sec_应急响应流程.md"},
+        {"file": "sec_备份与恢复规范.md"}
+      ]
+    }
+  ]
+}
